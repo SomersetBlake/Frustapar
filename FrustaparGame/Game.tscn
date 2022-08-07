@@ -1,0 +1,860 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/Grid.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Elements_Border_Right.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Borders/Elements_Border_top.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Borders/Elements_Border_Left.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Borders/Elements_Border_Bottom.png" type="Texture" id=5]
+[ext_resource path="res://Button.gd" type="Script" id=6]
+[ext_resource path="res://Label.gd" type="Script" id=7]
+[ext_resource path="res://Assets/FirstBackground23_06.png" type="Texture" id=8]
+[ext_resource path="res://ScalingShader.gdshader" type="Shader" id=9]
+[ext_resource path="res://GridMain.gd" type="Script" id=10]
+[ext_resource path="res://Clock.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 9 )
+
+[node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 448.0 ],
+"_edit_vertical_guides_": [ 64.0 ]
+}
+
+[node name="PrototypeLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="PrototypeLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.592157, 0.913725, 0.976471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="PrototypeLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -416.0
+margin_right = -64.0
+margin_bottom = -32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button33" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_right = 64.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button34" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_right = 96.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button35" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button36" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_right = 160.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button37" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_right = 192.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button38" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button39" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button40" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 32.0
+margin_right = 96.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button41" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button42" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 32.0
+margin_right = 160.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button43" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 32.0
+margin_right = 192.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button44" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 64.0
+margin_right = 32.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button45" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 64.0
+margin_right = 64.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button46" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 96.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button47" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 128.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button48" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 160.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button49" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 64.0
+margin_right = 192.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button50" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 96.0
+margin_right = 32.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button51" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 96.0
+margin_right = 64.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button52" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 96.0
+margin_right = 96.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button53" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 96.0
+margin_right = 128.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button54" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 96.0
+margin_right = 160.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button55" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 96.0
+margin_right = 192.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button56" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 128.0
+margin_right = 32.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button57" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 128.0
+margin_right = 64.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button58" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 128.0
+margin_right = 96.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button59" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button60" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 128.0
+margin_right = 160.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button61" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 128.0
+margin_right = 192.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button62" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 160.0
+margin_right = 32.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button63" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 160.0
+margin_right = 64.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button64" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 160.0
+margin_right = 96.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button65" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 160.0
+margin_right = 128.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button66" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 160.0
+margin_right = 160.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button67" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 160.0
+margin_right = 192.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button68" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 192.0
+margin_right = 32.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button69" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 192.0
+margin_right = 64.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button70" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 192.0
+margin_right = 96.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button71" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 192.0
+margin_right = 128.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button72" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 192.0
+margin_right = 160.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button2" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 192.0
+margin_right = 192.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button3" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 224.0
+margin_right = 32.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button4" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 224.0
+margin_right = 64.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button5" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 224.0
+margin_right = 96.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button6" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 224.0
+margin_right = 128.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button7" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 224.0
+margin_right = 160.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button8" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 224.0
+margin_right = 192.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button9" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 256.0
+margin_right = 32.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button10" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 256.0
+margin_right = 64.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button11" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 256.0
+margin_right = 96.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button12" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 256.0
+margin_right = 128.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button13" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 256.0
+margin_right = 160.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button14" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 256.0
+margin_right = 192.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button15" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 288.0
+margin_right = 32.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button16" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 288.0
+margin_right = 64.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button17" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 288.0
+margin_right = 96.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button18" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 288.0
+margin_right = 128.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button19" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 288.0
+margin_right = 160.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button20" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 288.0
+margin_right = 192.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button21" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 320.0
+margin_right = 32.0
+margin_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button22" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 320.0
+margin_right = 64.0
+margin_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button23" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 320.0
+margin_right = 96.0
+margin_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button24" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 320.0
+margin_right = 128.0
+margin_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button25" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 320.0
+margin_right = 160.0
+margin_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button26" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 320.0
+margin_right = 192.0
+margin_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button27" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_top = 352.0
+margin_right = 32.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button28" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 32.0
+margin_top = 352.0
+margin_right = 64.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button29" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 64.0
+margin_top = 352.0
+margin_right = 96.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button30" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 96.0
+margin_top = 352.0
+margin_right = 128.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button31" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 128.0
+margin_top = 352.0
+margin_right = 160.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Button32" type="Button" parent="PrototypeLayer/GridContainer"]
+margin_left = 160.0
+margin_top = 352.0
+margin_right = 192.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "F"
+
+[node name="Grid" type="Node2D" parent="." groups=["Grid"]]
+visible = false
+position = Vector2( 64, 448 )
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 256.0
+margin_bottom = 448.0
+color = Color( 0, 0, 0, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FirstBackground23_06" type="Sprite" parent="CanvasLayer"]
+material = SubResource( 1 )
+position = Vector2( 320, 240 )
+texture = ExtResource( 8 )
+
+[node name="Border" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Border"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Sprite" parent="Border/Control"]
+position = Vector2( 260, 256 )
+texture = ExtResource( 2 )
+
+[node name="Left" type="Sprite" parent="Border/Control"]
+position = Vector2( 60, 256 )
+texture = ExtResource( 4 )
+
+[node name="Top" type="Sprite" parent="Border/Control"]
+position = Vector2( 160, 60 )
+texture = ExtResource( 3 )
+
+[node name="Bottom" type="Sprite" parent="Border/Control"]
+position = Vector2( 160, 452 )
+texture = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="Border/Control"]
+margin_left = 64.0
+margin_top = 456.0
+margin_right = 256.0
+margin_bottom = 480.0
+color = Color( 0.592157, 0.913725, 0.976471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 400.0
+margin_top = 96.0
+margin_right = 544.0
+margin_bottom = 184.0
+text = "STOP"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 344.0
+margin_top = 32.0
+margin_right = 384.0
+margin_bottom = 46.0
+text = "KLKK"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridTest" type="Node2D" parent="."]
+position = Vector2( 64, 448 )
+script = ExtResource( 10 )
+
+[node name="Time" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 344.0
+margin_top = 64.0
+margin_right = 384.0
+margin_bottom = 78.0
+text = "KLKK"
+script = ExtResource( 11 )
+
+[node name="Score" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 344.0
+margin_top = 96.0
+margin_right = 384.0
+margin_bottom = 110.0
+script = ExtResource( 12 )
+
+[connection signal="button_down" from="Button" to="Button" method="_on_Button_button_down"]

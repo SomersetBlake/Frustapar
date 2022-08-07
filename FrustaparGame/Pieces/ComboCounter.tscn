@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/PixeloidSansBold-RpeJo.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Combo_Piece.png" type="Texture" id=2]
+[ext_resource path="res://ScalingShader.gdshader" type="Shader" id=3]
+[ext_resource path="res://Scripts/Combo.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_color = Color( 0.682353, 0.380392, 0.133333, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Combo"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, -10 ), Vector2( 0, -15 ), Vector2( 0, -20 ), Vector2( 0, -25 ), Vector2( 0, -30 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -16, -16 ), Vector2( -16, -21 ), Vector2( -16, -26 ), Vector2( -16, -31 ), Vector2( -16, -36 ), Vector2( -16, -41 ), Vector2( -16, -46 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -16 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+material = SubResource( 3 )
+scale = Vector2( 0.75, 0.75 )
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 6 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.94902, 0.941176, 0.498039, 1 )
+light_mask = 0
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 16, 16 )
+theme = SubResource( 2 )
+text = "x2"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Combo = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
