@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Grid.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Elements_Border_Right.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Borders/Elements_Border_Right.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Borders/Elements_Border_top.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Borders/Elements_Border_Left.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Borders/Elements_Border_Bottom.png" type="Texture" id=5]
@@ -14,6 +14,9 @@
 [ext_resource path="res://Scripts/Score.gd" type="Script" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 9 )
+
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 9 )
 
 [node name="Node2D" type="Node2D"]
@@ -789,7 +792,6 @@ __meta__ = {
 
 [node name="Right" type="Sprite" parent="Border/Control"]
 position = Vector2( 260, 256 )
-texture = ExtResource( 2 )
 
 [node name="Left" type="Sprite" parent="Border/Control"]
 position = Vector2( 60, 256 )
@@ -856,5 +858,10 @@ margin_top = 96.0
 margin_right = 384.0
 margin_bottom = 110.0
 script = ExtResource( 12 )
+
+[node name="ElementsBorderRight" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 260, 256 )
+texture = ExtResource( 2 )
 
 [connection signal="button_down" from="Button" to="Button" method="_on_Button_button_down"]
