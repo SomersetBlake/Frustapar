@@ -18,10 +18,21 @@ func end_game():
 				
 			elif(win_line_node != Node2D):
 				if (Global.pieces_table[x][Global.height - 1].global_position.y >= win_line_node.rect_global_position.y):
-					Global.speed = 0
-					Global.gameEnded = true
-					print("YOU WON")
+					Global.levelSpeed += 5
+					Global.speed = Global.levelSpeed
+		#			Global.gameEnded = true
+					Global.level += 1
+					Global.last_row = Global.added_rows + 2
+					change_level()
+					win_line_node = Node2D
 
+func change_level():
+	var chLevel = preload("res://Scripts/LevelText.gd").new()
+	chLevel.changeLevel()
+
+
+
+#makes the lowest pieces gray and disables it matching
 func low_pieces():
 	for x in Global.width:
 		for y in Global.height:
@@ -34,10 +45,15 @@ func low_pieces():
 				Global.pieces_table[x][y].modulate = Color(1,1,1,1)
 				Global.pieces_table[x][y].matchable = true
 				Global.pieces_table[x][y].movable = true
-				
+
+
+
+#Function starts every time a line is destroyed, it checks whether it should 
+#make a line that determines the end of level. It checks by comparing created rows
+#to number of created rows to finish
 func win_line():
 	if(Global.added_rows >= Global.last_row):
-		Global.last_row = Global.added_rows + 2000
+		Global.last_row = Global.added_rows + 20000
 		win_line_node = preload("res://Pieces/Win_game_line.tscn").instance()
 		Global.parent_node.add_child(win_line_node)
 		win_line_node.rect_size.x = Global.size * Global.width

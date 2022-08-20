@@ -1,6 +1,6 @@
 extends Node2D
 
-var stopped = false
+
 
 
 #Returns an array containing how many of the same types of pieces are in a direction
@@ -126,7 +126,6 @@ func tag_matching(pos: Vector2):
 				Global.matchedNumber += 1
 		if(Global.matchedNumber > 3):
 			stop_time()
-			stopped = true
 		Global.score += Global.matchedNumber * 100 * combo_nb
 		if(combo_nb > 1):
 			combo_anim(pos, combo_nb)
@@ -134,12 +133,24 @@ func tag_matching(pos: Vector2):
 		
 
 func stop_time():
-	if stopped == false:
+	if Global.stopped == false:
+		Global.stopped = true
 		Global.speed = 0
 		Global.waitTime = Global.passedTime + 4
+		print(Global.waitTime)
+		var glass = preload("res://Pieces/Hourglass.tscn").instance()
+		if(Global.exist_glass == false):
+			Global.parent_node.get_parent().add_child(glass)
+			glass.global_position = Vector2(348,305)
+			Global.exist_glass = true
 		yield(Global.parent_node.get_tree().create_timer(4),"timeout")
-		Global.speed = 10
-		stopped = false
+		if(Global.stopped):
+			glass.queue_free()
+		Global.exist_glass = false
+		Global.speed = Global.levelSpeed
+		Global.stopped = false
+
+
 
 
 #Sometimes animation aren't finished before changes appear in pieces_table
@@ -184,7 +195,6 @@ func make_empty(pos: Vector2):
 func explosionAnim(pos: Vector2):
 	var explosion = preload("res://Pieces/ExplosionAnimation.tscn").instance()
 	Global.parent_node.add_child(explosion)
-#	explosion.modulate = Color(0.5,1,1,1)
 	explosion.position = Global.pieces_table[pos.x][pos.y].position
 	
 func change_score():
@@ -208,4 +218,6 @@ func combo_anim(pos:Vector2, combo_nb: int):
 	var create_grid = Global.parent_node.grid_creator
 	Global.parent_node.add_child(combo_piece)
 	combo_piece.position = create_grid.piece_position(pos.x, pos.y)
+	stop_time()
+	
 	

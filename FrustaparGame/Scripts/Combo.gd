@@ -12,7 +12,7 @@ func _ready() -> void:
 	combo_anim.play("Combo")
 
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	var explosion = preload("res://Pieces/ExplosionAnimation.tscn").instance()
 	Global.parent_node.add_child(explosion)
 	explosion.global_position = get_node("Sprite").global_position

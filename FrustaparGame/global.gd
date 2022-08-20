@@ -1,6 +1,7 @@
 extends Node2D
 
 var speed: = 10
+var levelSpeed = 10
 var child_count = 0
 var width: = 6
 var height: = 14
@@ -8,7 +9,7 @@ var offset: = 16
 var size: = 32
 var start_pos: = 316
 var start_y: = 448
-var last_row = 1
+var last_row = -12
 #var _timer = null
 var pieces_table: = []
 var pieces_packed =[
@@ -29,3 +30,6 @@ var matchedNumber = 0
 var passedTime = 0
 var waitTime = 0
 var score = 0
+var exist_glass = false
+var level = 1
+var stopped = false

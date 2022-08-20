@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		if(Input.is_action_just_pressed("ui_click")):
 			destroy_line()
 			Global.first_pos = get_global_mouse_position()
-			var mouse_grid = grid_creator.position_to_grid(get_global_mouse_position())
+			var _mouse_grid = grid_creator.position_to_grid(get_global_mouse_position())
 #			print(Global.pieces_table[mouse_grid.x][mouse_grid.y].combo)
 
 		if(Input.is_action_just_released("ui_click")):

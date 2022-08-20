@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FirstBackgroundTEST.png-d9e2657985134e883e56fd2a649961f6.stex"
+path="res://.import/BackgroundForestSimple.png-c1b6daa3e48d06f812bc74eb0c7c991a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/FirstBackgroundTEST.png"
-dest_files=[ "res://.import/FirstBackgroundTEST.png-d9e2657985134e883e56fd2a649961f6.stex" ]
+source_file="res://Assets/BackgroundForestSimple.png"
+dest_files=[ "res://.import/BackgroundForestSimple.png-c1b6daa3e48d06f812bc74eb0c7c991a.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

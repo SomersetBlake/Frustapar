@@ -1,17 +1,21 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Borders/Elements_Border_Right.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Borders/Elements_Border_top.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Borders/Elements_Border_Left.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Borders/Elements_Border_Bottom.png" type="Texture" id=5]
-[ext_resource path="res://Button.gd" type="Script" id=6]
-[ext_resource path="res://Label.gd" type="Script" id=7]
-[ext_resource path="res://Assets/FirstBackground23_06.png" type="Texture" id=8]
+[ext_resource path="res://Assets/BackgroundSimple.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/StopText.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/LevelText.gd" type="Script" id=8]
 [ext_resource path="res://ScalingShader.gdshader" type="Shader" id=9]
 [ext_resource path="res://GridMain.gd" type="Script" id=10]
 [ext_resource path="res://Clock.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Score.gd" type="Script" id=12]
+[ext_resource path="res://Assets/PublicPixel-0W5Kv.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Assets/DeerTogether2.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/FontTheme.tres" type="Theme" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -19,11 +23,31 @@ shader = ExtResource( 9 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 9 )
 
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 13 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 13 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
+
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 448.0 ],
 "_edit_vertical_guides_": [ 64.0 ]
 }
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause" parent="CanvasLayer2" instance=ExtResource( 15 )]
 
 [node name="PrototypeLayer" type="CanvasLayer" parent="."]
 layer = -100
@@ -31,740 +55,20 @@ layer = -100
 [node name="ColorRect" type="ColorRect" parent="PrototypeLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.592157, 0.913725, 0.976471, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GridContainer" type="GridContainer" parent="PrototypeLayer"]
-visible = false
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -256.0
-margin_top = -416.0
-margin_right = -64.0
-margin_bottom = -32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-custom_constants/vseparation = 0
-custom_constants/hseparation = 0
-columns = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button33" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_right = 64.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button34" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button35" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_right = 128.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button36" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_right = 160.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button37" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_right = 192.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button38" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 32.0
-margin_right = 32.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button39" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 64.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button40" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 32.0
-margin_right = 96.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button41" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 32.0
-margin_right = 128.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button42" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 32.0
-margin_right = 160.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button43" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 32.0
-margin_right = 192.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button44" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 64.0
-margin_right = 32.0
-margin_bottom = 96.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button45" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 64.0
-margin_right = 64.0
-margin_bottom = 96.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button46" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 64.0
-margin_right = 96.0
-margin_bottom = 96.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button47" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 64.0
-margin_right = 128.0
-margin_bottom = 96.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button48" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 64.0
-margin_right = 160.0
-margin_bottom = 96.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button49" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 64.0
-margin_right = 192.0
-margin_bottom = 96.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button50" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 96.0
-margin_right = 32.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button51" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 96.0
-margin_right = 64.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button52" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 96.0
-margin_right = 96.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button53" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 96.0
-margin_right = 128.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button54" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 96.0
-margin_right = 160.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button55" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 96.0
-margin_right = 192.0
-margin_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button56" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 128.0
-margin_right = 32.0
-margin_bottom = 160.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button57" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 128.0
-margin_right = 64.0
-margin_bottom = 160.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button58" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 128.0
-margin_right = 96.0
-margin_bottom = 160.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button59" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 128.0
-margin_right = 128.0
-margin_bottom = 160.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button60" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 128.0
-margin_right = 160.0
-margin_bottom = 160.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button61" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 128.0
-margin_right = 192.0
-margin_bottom = 160.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button62" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 160.0
-margin_right = 32.0
-margin_bottom = 192.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button63" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 160.0
-margin_right = 64.0
-margin_bottom = 192.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button64" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 160.0
-margin_right = 96.0
-margin_bottom = 192.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button65" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 160.0
-margin_right = 128.0
-margin_bottom = 192.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button66" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 160.0
-margin_right = 160.0
-margin_bottom = 192.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button67" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 160.0
-margin_right = 192.0
-margin_bottom = 192.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button68" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 192.0
-margin_right = 32.0
-margin_bottom = 224.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button69" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 192.0
-margin_right = 64.0
-margin_bottom = 224.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button70" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 192.0
-margin_right = 96.0
-margin_bottom = 224.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button71" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 192.0
-margin_right = 128.0
-margin_bottom = 224.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button72" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 192.0
-margin_right = 160.0
-margin_bottom = 224.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button2" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 192.0
-margin_right = 192.0
-margin_bottom = 224.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button3" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 224.0
-margin_right = 32.0
-margin_bottom = 256.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button4" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 224.0
-margin_right = 64.0
-margin_bottom = 256.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button5" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 224.0
-margin_right = 96.0
-margin_bottom = 256.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button6" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 224.0
-margin_right = 128.0
-margin_bottom = 256.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button7" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 224.0
-margin_right = 160.0
-margin_bottom = 256.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button8" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 224.0
-margin_right = 192.0
-margin_bottom = 256.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button9" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 256.0
-margin_right = 32.0
-margin_bottom = 288.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button10" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 256.0
-margin_right = 64.0
-margin_bottom = 288.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button11" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 256.0
-margin_right = 96.0
-margin_bottom = 288.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button12" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 256.0
-margin_right = 128.0
-margin_bottom = 288.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button13" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 256.0
-margin_right = 160.0
-margin_bottom = 288.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button14" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 256.0
-margin_right = 192.0
-margin_bottom = 288.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button15" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 288.0
-margin_right = 32.0
-margin_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button16" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 288.0
-margin_right = 64.0
-margin_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button17" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 288.0
-margin_right = 96.0
-margin_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button18" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 288.0
-margin_right = 128.0
-margin_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button19" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 288.0
-margin_right = 160.0
-margin_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button20" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 288.0
-margin_right = 192.0
-margin_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button21" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 320.0
-margin_right = 32.0
-margin_bottom = 352.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button22" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 320.0
-margin_right = 64.0
-margin_bottom = 352.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button23" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 320.0
-margin_right = 96.0
-margin_bottom = 352.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button24" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 320.0
-margin_right = 128.0
-margin_bottom = 352.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button25" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 320.0
-margin_right = 160.0
-margin_bottom = 352.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button26" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 320.0
-margin_right = 192.0
-margin_bottom = 352.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button27" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_top = 352.0
-margin_right = 32.0
-margin_bottom = 384.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button28" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 32.0
-margin_top = 352.0
-margin_right = 64.0
-margin_bottom = 384.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button29" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 64.0
-margin_top = 352.0
-margin_right = 96.0
-margin_bottom = 384.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button30" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 96.0
-margin_top = 352.0
-margin_right = 128.0
-margin_bottom = 384.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button31" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 128.0
-margin_top = 352.0
-margin_right = 160.0
-margin_bottom = 384.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
-
-[node name="Button32" type="Button" parent="PrototypeLayer/GridContainer"]
-margin_left = 160.0
-margin_top = 352.0
-margin_right = 192.0
-margin_bottom = 384.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "F"
+color = Color( 0.152941, 0.156863, 0.345098, 1 )
 
 [node name="Grid" type="Node2D" parent="." groups=["Grid"]]
-visible = false
 position = Vector2( 64, 448 )
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
+
+[node name="FirstBackground23_07" type="Sprite" parent="CanvasLayer"]
+material = SubResource( 1 )
+position = Vector2( 320.5, 240.5 )
+scale = Vector2( 5.00781, 3.75781 )
+texture = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_left = 64.0
@@ -772,26 +76,12 @@ margin_top = 64.0
 margin_right = 256.0
 margin_bottom = 448.0
 color = Color( 0, 0, 0, 0.627451 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FirstBackground23_06" type="Sprite" parent="CanvasLayer"]
-material = SubResource( 1 )
-position = Vector2( 320, 240 )
-texture = ExtResource( 8 )
 
 [node name="Border" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="Border"]
 margin_right = 40.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Right" type="Sprite" parent="Border/Control"]
-position = Vector2( 260, 256 )
 
 [node name="Left" type="Sprite" parent="Border/Control"]
 position = Vector2( 60, 256 )
@@ -801,67 +91,123 @@ texture = ExtResource( 4 )
 position = Vector2( 160, 60 )
 texture = ExtResource( 3 )
 
+[node name="Top2" type="Sprite" parent="Border/Control"]
+position = Vector2( 312, 86 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
 [node name="Bottom" type="Sprite" parent="Border/Control"]
 position = Vector2( 160, 452 )
 texture = ExtResource( 5 )
 
+[node name="Bottom2" type="Sprite" parent="Border/Control"]
+position = Vector2( 312, 280 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Right" type="Sprite" parent="Border/Control"]
+material = SubResource( 2 )
+position = Vector2( 260, 256 )
+texture = ExtResource( 2 )
+
+[node name="Right2" type="Sprite" parent="Border/Control"]
+material = SubResource( 2 )
+position = Vector2( 362, 184 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
 [node name="ColorRect" type="ColorRect" parent="Border/Control"]
-margin_left = 64.0
+margin_left = 57.0
 margin_top = 456.0
-margin_right = 256.0
-margin_bottom = 480.0
-color = Color( 0.592157, 0.913725, 0.976471, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="."]
-margin_left = 400.0
-margin_top = 96.0
-margin_right = 544.0
-margin_bottom = 184.0
-text = "STOP"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 344.0
-margin_top = 32.0
-margin_right = 384.0
-margin_bottom = 46.0
-text = "KLKK"
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_right = 264.0
+margin_bottom = 481.0
+color = Color( 0.0392157, 0.0588235, 0.188235, 1 )
 
 [node name="GridTest" type="Node2D" parent="."]
 position = Vector2( 64, 448 )
 script = ExtResource( 10 )
 
-[node name="Time" type="Label" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 344.0
-margin_top = 64.0
-margin_right = 384.0
-margin_bottom = 78.0
-text = "KLKK"
+[node name="Deer" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 434, 371 )
+scale = Vector2( 0.976562, 0.976562 )
+texture = ExtResource( 14 )
+
+[node name="Labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="STOP" type="Label" parent="Labels"]
+margin_left = 264.0
+margin_top = 282.0
+margin_right = 328.0
+margin_bottom = 317.0
+theme = SubResource( 6 )
+text = "STOP
+4"
+align = 1
+valign = 1
+script = ExtResource( 7 )
+
+[node name="Time" type="Label" parent="Labels"]
+margin_left = 264.0
+margin_top = 168.0
+margin_right = 360.0
+margin_bottom = 184.0
+theme = SubResource( 8 )
+text = "90"
+align = 1
+valign = 1
 script = ExtResource( 11 )
 
-[node name="Score" type="Label" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 344.0
-margin_top = 96.0
-margin_right = 384.0
-margin_bottom = 110.0
+[node name="TimeText" type="Label" parent="Labels"]
+margin_left = 264.0
+margin_top = 148.0
+margin_right = 360.0
+margin_bottom = 164.0
+theme = SubResource( 8 )
+text = "TIME"
+align = 1
+valign = 1
+
+[node name="Score" type="Label" parent="Labels"]
+margin_left = 264.0
+margin_top = 108.0
+margin_right = 360.0
+margin_bottom = 127.0
+theme = ExtResource( 16 )
+text = "300"
+align = 1
+valign = 1
 script = ExtResource( 12 )
 
-[node name="ElementsBorderRight" type="Sprite" parent="."]
-material = SubResource( 2 )
-position = Vector2( 260, 256 )
-texture = ExtResource( 2 )
+[node name="ScoreText" type="Label" parent="Labels"]
+margin_left = 264.0
+margin_top = 88.0
+margin_right = 360.0
+margin_bottom = 104.0
+theme = ExtResource( 16 )
+text = "SCORE"
+align = 1
+valign = 1
 
-[connection signal="button_down" from="Button" to="Button" method="_on_Button_button_down"]
+[node name="Label" type="Label" parent="Labels"]
+margin_left = 264.0
+margin_top = 208.0
+margin_right = 360.0
+margin_bottom = 224.0
+theme = ExtResource( 16 )
+text = "LEVEL"
+align = 1
+valign = 1
+
+[node name="LevelText" type="Label" parent="Labels"]
+margin_left = 264.0
+margin_top = 228.0
+margin_right = 360.0
+margin_bottom = 244.0
+theme = ExtResource( 16 )
+text = "1"
+align = 1
+valign = 1
+script = ExtResource( 8 )

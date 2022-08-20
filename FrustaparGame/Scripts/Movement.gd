@@ -92,6 +92,7 @@ func move_pieces_X():
 	for x in Global.width:
 		for y in Global.height:
 			if(Global.pieces_table[x][y].position.x != Global.pieces_table[x][y].node_pos.x):
+				reset_combo(x)
 				tween1 = Global.pieces_table[x][y].get_node("Tween")
 				tween1.interpolate_property(Global.pieces_table[x][y], "position",
 				 Global.pieces_table[x][y].position, Global.pieces_table[x][y].node_pos,
@@ -99,6 +100,14 @@ func move_pieces_X():
 				tween1.start()
 				make_movable_down(x,y,tween_time)
 		make_matchable()
+		
+#It resets the combo counter, if a piece was moved
+func reset_combo(x):
+	var y = 0
+	while(y<Global.height):
+		Global.pieces_table[x][y].combo = 1
+		Global.pieces_table[x][y].combo_Time = Global.passedTime
+		y += 1
 
 func make_movable_down(x,y,t):
 	yield(Global.parent_node.get_tree().create_timer(t),"timeout")
