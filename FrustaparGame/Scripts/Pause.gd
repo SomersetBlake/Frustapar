@@ -16,3 +16,22 @@ func set_paused(value: bool) -> void:
 	paused = value
 	scene_tree.paused = value
 	pause_screen.visible = value
+
+
+func _on_ExitButton_button_up():
+	var ev = InputEventAction.new()
+	ev.action = "pause"
+	ev.pressed = true
+	Input.parse_input_event(ev)
+	reset_variables()
+	get_tree().change_scene("res://Scenes/MainScene.tscn")
+	
+	
+func reset_variables():
+	Global.score = 0
+	Global.speed = Global.levelSpeed[Global.selectedLevel - 1]
+	Global.stopped = false
+	Global.passedTime = 0
+	Global.waitTime = 0
+	Global.level = 1
+	Global.gameEnded = false	

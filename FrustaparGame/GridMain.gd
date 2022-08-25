@@ -10,6 +10,7 @@ var _timer = Node2D
 
 func _ready():
 	Global.parent_node = self
+	Global.speed = Global.levelSpeed[Global.selectedLevel - 1]
 	position.y = Global.start_pos
 	grid_creator.create()
 	_timer = Timer.new()
@@ -54,6 +55,7 @@ func _on_Timer_timeout():
 	repair_black_boxes()
 	grid_end.low_pieces()
 	grid_end.end_game()
+	print(Global.speed)
 
 
 func destroy_line():
@@ -73,6 +75,7 @@ func destroy_line():
 
 
 func create_line():
+	Global.start_pos = Global.start_pos - Global.size
 	Global.added_rows += 1
 	for x in Global.width:
 		var previous = Global.pieces_table[x][0]

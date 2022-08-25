@@ -5,7 +5,6 @@ var matching_node
 
 func create():
 	matching_node = preload('res://Scripts/Matching.gd').new()
-	print("SomethingWorks")
 	randomize()
 	Global.pieces_table = create_array()
 	create_grid()
@@ -62,8 +61,3 @@ func is_in_grid(element_position: Vector2):
 			return false
 	else:
 		return false	
-
-func write_something(pos: Vector2) -> Vector2:
-	print("Somethinhg")
-	print(pos.x)
-	return pos

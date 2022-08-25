@@ -2,6 +2,7 @@ extends Label
 
 
 func _ready() -> void:
+	Global.level = Global.selectedLevel
 	self.text = String(Global.level)
 
 func changeLevel():

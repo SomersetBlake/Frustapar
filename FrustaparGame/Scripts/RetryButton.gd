@@ -3,8 +3,7 @@ extends Button
 
 func _on_RetryButton_button_up():
 	Global.score = 0
-	Global.speed = Global.levelSpeed
-	Global.levelSpeed = 10
+	Global.speed = Global.levelSpeed[Global.level - 1]
 	Global.stopped = false
 	Global.passedTime = 0
 	Global.waitTime = 0

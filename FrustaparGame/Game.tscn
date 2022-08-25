@@ -49,14 +49,6 @@ layer = 100
 
 [node name="Pause" parent="CanvasLayer2" instance=ExtResource( 15 )]
 
-[node name="PrototypeLayer" type="CanvasLayer" parent="."]
-layer = -100
-
-[node name="ColorRect" type="ColorRect" parent="PrototypeLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.152941, 0.156863, 0.345098, 1 )
-
 [node name="Grid" type="Node2D" parent="." groups=["Grid"]]
 position = Vector2( 64, 448 )
 script = ExtResource( 1 )
@@ -64,13 +56,13 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
 
-[node name="FirstBackground23_07" type="Sprite" parent="CanvasLayer"]
+[node name="Background" type="Sprite" parent="CanvasLayer"]
 material = SubResource( 1 )
 position = Vector2( 320.5, 240.5 )
 scale = Vector2( 5.00781, 3.75781 )
 texture = ExtResource( 6 )
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="GridBackground" type="ColorRect" parent="CanvasLayer"]
 margin_left = 64.0
 margin_top = 64.0
 margin_right = 256.0

@@ -111,7 +111,8 @@ func reset_combo(x):
 
 func make_movable_down(x,y,t):
 	yield(Global.parent_node.get_tree().create_timer(t),"timeout")
-	Global.pieces_table[x][y].movable_down = true
+	if(is_instance_valid(Global.pieces_table[x][y])):
+		Global.pieces_table[x][y].movable_down = true
 
 func make_matchable():
 	var matching_node = preload('res://Scripts/Matching.gd').new()

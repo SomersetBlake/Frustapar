@@ -18,11 +18,11 @@ func end_game():
 				
 			elif(win_line_node != Node2D):
 				if (Global.pieces_table[x][Global.height - 1].global_position.y >= win_line_node.rect_global_position.y):
-					Global.levelSpeed += 5
-					Global.speed = Global.levelSpeed
+					
 		#			Global.gameEnded = true
 					Global.level += 1
 					Global.last_row = Global.added_rows + 2
+					Global.speed = Global.levelSpeed[Global.level - 1]
 					change_level()
 					win_line_node = Node2D
 

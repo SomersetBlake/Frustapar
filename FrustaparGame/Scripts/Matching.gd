@@ -137,17 +137,16 @@ func stop_time():
 		Global.stopped = true
 		Global.speed = 0
 		Global.waitTime = Global.passedTime + 4
-		print(Global.waitTime)
 		var glass = preload("res://Pieces/Hourglass.tscn").instance()
 		if(Global.exist_glass == false):
 			Global.parent_node.get_parent().add_child(glass)
 			glass.global_position = Vector2(348,305)
 			Global.exist_glass = true
 		yield(Global.parent_node.get_tree().create_timer(4),"timeout")
-		if(Global.stopped):
+		if(Global.stopped && is_instance_valid(glass)):
 			glass.queue_free()
 		Global.exist_glass = false
-		Global.speed = Global.levelSpeed
+		Global.speed = Global.levelSpeed[Global.level - 1]
 		Global.stopped = false
 
 
@@ -175,9 +174,10 @@ func match_anim(pos: Vector2, anim_name):
 func make_matchable():
 	for x in Global.width:
 		for y in Global.height:
-			if(typeof(Global.pieces_table[x][y]) == TYPE_OBJECT && Global.pieces_table[x][y] != null
-			&& Global.pieces_table[x][y].modulate != Color(0.2,0.2,0.2,1)):
-				Global.pieces_table[x][y].matchable = true	
+			if(typeof(Global.pieces_table[x][y]) == TYPE_OBJECT && Global.pieces_table[x][y] != null &&
+			is_instance_valid(Global.pieces_table[x][y])):
+				if Global.pieces_table[x][y].modulate != Color(0.2,0.2,0.2,1):
+					Global.pieces_table[x][y].matchable = true	
 				
 				
 #Changes pieces to empty pieces

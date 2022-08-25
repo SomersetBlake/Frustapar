@@ -1,7 +1,8 @@
 extends Node2D
 
 var speed: = 10
-var levelSpeed = 10
+var levelSpeed = [10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,100,120,200,300]
+var selectedLevel = 1
 var child_count = 0
 var width: = 6
 var height: = 14
