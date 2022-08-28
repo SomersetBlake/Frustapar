@@ -12,8 +12,8 @@ func _on_BackButton_button_up():
 		LevelSelect.visible = false
 		tween.parallel().tween_property(LevelSelect, "rect_scale", Vector2(0,0), 0.75 )
 	else:
-		get_tree().change_scene("res://Scenes/MainScene.tscn")
+		SceneTransition.change_scene("res://Scenes/MainScene.tscn")
 
 
 func _on_PLAY_button_up():
-	get_tree().change_scene("res://Game.tscn")
+	SceneTransition.change_scene("res://Game.tscn")

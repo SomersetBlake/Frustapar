@@ -24,7 +24,7 @@ func _on_ExitButton_button_up():
 	ev.pressed = true
 	Input.parse_input_event(ev)
 	reset_variables()
-	get_tree().change_scene("res://Scenes/MainScene.tscn")
+	SceneTransition.change_scene("res://Scenes/MainScene.tscn")
 	
 	
 func reset_variables():
@@ -34,4 +34,5 @@ func reset_variables():
 	Global.passedTime = 0
 	Global.waitTime = 0
 	Global.level = 1
-	Global.gameEnded = false	
+	Global.gameEnded = false
+	Global.last_row = -12

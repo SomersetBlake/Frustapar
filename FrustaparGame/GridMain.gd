@@ -55,7 +55,6 @@ func _on_Timer_timeout():
 	repair_black_boxes()
 	grid_end.low_pieces()
 	grid_end.end_game()
-	print(Global.speed)
 
 
 func destroy_line():

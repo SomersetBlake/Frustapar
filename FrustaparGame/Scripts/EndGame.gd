@@ -8,6 +8,8 @@ func end_game():
 			if(Global.pieces_table[x][Global.height - 1].global_position.y <= 64 + Global.size/2 && Global.speed != 0):
 				Global.speed = 0
 				Global.gameEnded = true
+				Score_Saving.top_100.push_back(int(Global.score))
+				Score_Saving.save_scores()
 				var i = Global.height - 1
 				while(i >= 0):
 					for a in Global.width:
@@ -18,8 +20,6 @@ func end_game():
 				
 			elif(win_line_node != Node2D):
 				if (Global.pieces_table[x][Global.height - 1].global_position.y >= win_line_node.rect_global_position.y):
-					
-		#			Global.gameEnded = true
 					Global.level += 1
 					Global.last_row = Global.added_rows + 2
 					Global.speed = Global.levelSpeed[Global.level - 1]
@@ -52,6 +52,7 @@ func low_pieces():
 #make a line that determines the end of level. It checks by comparing created rows
 #to number of created rows to finish
 func win_line():
+	print(Global.last_row)
 	if(Global.added_rows >= Global.last_row):
 		Global.last_row = Global.added_rows + 20000
 		win_line_node = preload("res://Pieces/Win_game_line.tscn").instance()

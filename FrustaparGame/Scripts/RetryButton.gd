@@ -9,6 +9,7 @@ func _on_RetryButton_button_up():
 	Global.waitTime = 0
 	Global.level = 1
 	Global.gameEnded = false
+	Global.last_row = -12
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	

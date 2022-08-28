@@ -11,12 +11,14 @@ config_version=4
 [application]
 
 config/name="Frustapar"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Global.tscn"
+SceneTransition="*res://Scenes/Transition.tscn"
+Score_Saving="*res://Scenes/SaveAndLoad.tscn"
 
 [display]
 

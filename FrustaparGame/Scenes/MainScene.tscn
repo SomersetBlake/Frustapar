@@ -92,11 +92,11 @@ margin_right = 280.0
 margin_bottom = 64.0
 text = "PLAY"
 
-[node name="SettingsButton" type="Button" parent="Control/VBoxContainer"]
+[node name="HighscoreButton" type="Button" parent="Control/VBoxContainer"]
 margin_top = 90.0
 margin_right = 280.0
 margin_bottom = 141.0
-text = "SETTINGS"
+text = "HIGHSCORE"
 
 [node name="QuitGame" type="Button" parent="Control/VBoxContainer"]
 margin_top = 167.0
@@ -111,4 +111,5 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 8 )
 
 [connection signal="button_up" from="Control/VBoxContainer/PlayButton" to="Control" method="_on_PlayButton_button_up"]
+[connection signal="button_up" from="Control/VBoxContainer/HighscoreButton" to="Control" method="_on_HighscoreButton_button_up"]
 [connection signal="button_up" from="Control/VBoxContainer/QuitGame" to="Control" method="_on_QuitGame_button_up"]
