@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://ScalingShader.gdshader" type="Shader" id=1]
 [ext_resource path="res://Assets/Borders/Elements_Border_Right.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scripts/LevelSelectButton.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/PlaySettings.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/StartGameSettings.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Click.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 1 )
@@ -30,6 +31,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 11 )
+
+[node name="Click" parent="Control" instance=ExtResource( 13 )]
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 modulate = Color( 0.968627, 0.988235, 0.654902, 1 )
@@ -101,6 +104,8 @@ margin_right = 280.0
 margin_bottom = 102.0
 text = "LEVEL"
 script = ExtResource( 9 )
+
+[node name="Click" parent="Control/Border/VBoxContainer/LevelSelect" instance=ExtResource( 13 )]
 
 [node name="BackButton" type="Button" parent="Control/Border/VBoxContainer"]
 margin_top = 128.0

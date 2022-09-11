@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ScalingShader.gdshader" type="Shader" id=1]
 [ext_resource path="res://Assets/BackgroundMountainSimple.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Borders/Elements_Border_top.png" type="Texture" id=7]
 [ext_resource path="res://Assets/FRUSTAPAR_TITLE_3.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Click.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -27,6 +28,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 9 )
+
+[node name="Click" parent="Control" instance=ExtResource( 10 )]
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 modulate = Color( 0.968627, 0.988235, 0.654902, 1 )
@@ -77,31 +80,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 181.0
-margin_top = 185.341
+margin_top = 163.0
 margin_right = 461.0
-margin_bottom = 416.341
+margin_bottom = 445.0
 size_flags_vertical = 2
-size_flags_stretch_ratio = 1.16
 theme = ExtResource( 3 )
-custom_constants/separation = 26
+custom_constants/separation = 15
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="Control/VBoxContainer"]
-margin_top = 13.0
+margin_top = 16.0
 margin_right = 280.0
-margin_bottom = 64.0
+margin_bottom = 67.0
 text = "PLAY"
 
 [node name="HighscoreButton" type="Button" parent="Control/VBoxContainer"]
-margin_top = 90.0
+margin_top = 82.0
 margin_right = 280.0
-margin_bottom = 141.0
+margin_bottom = 133.0
 text = "HIGHSCORE"
 
-[node name="QuitGame" type="Button" parent="Control/VBoxContainer"]
-margin_top = 167.0
+[node name="Audio" type="Button" parent="Control/VBoxContainer"]
+margin_top = 148.0
 margin_right = 280.0
-margin_bottom = 218.0
+margin_bottom = 199.0
+text = "Audio"
+
+[node name="QuitGame" type="Button" parent="Control/VBoxContainer"]
+margin_top = 214.0
+margin_right = 280.0
+margin_bottom = 265.0
 text = "EXIT"
 
 [node name="FrustaparTitle3" type="Sprite" parent="Control"]
@@ -112,4 +120,5 @@ texture = ExtResource( 8 )
 
 [connection signal="button_up" from="Control/VBoxContainer/PlayButton" to="Control" method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="Control/VBoxContainer/HighscoreButton" to="Control" method="_on_HighscoreButton_button_up"]
+[connection signal="button_up" from="Control/VBoxContainer/Audio" to="Control" method="_on_Audio_button_up"]
 [connection signal="button_up" from="Control/VBoxContainer/QuitGame" to="Control" method="_on_QuitGame_button_up"]

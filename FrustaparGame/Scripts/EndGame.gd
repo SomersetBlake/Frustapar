@@ -10,12 +10,19 @@ func end_game():
 				Global.gameEnded = true
 				Score_Saving.top_100.push_back(int(Global.score))
 				Score_Saving.save_scores()
+				Global.parent_node.get_node("LoseSound").play()
 				var i = Global.height - 1
 				while(i >= 0):
 					for a in Global.width:
 						Global.pieces_table[a][i].modulate = Color(0.2,0.2,0.2,1)
 					yield(Global.parent_node.get_tree().create_timer(0.1),"timeout")
 					i -= 1
+				
+				yield(Global.parent_node.get_tree().create_timer(1),"timeout")
+				var ev = InputEventAction.new()
+				ev.action = "pause"
+				ev.pressed = true
+				Input.parse_input_event(ev)
 				break
 				
 			elif(win_line_node != Node2D):
@@ -27,6 +34,7 @@ func end_game():
 					win_line_node = Node2D
 
 func change_level():
+	Global.parent_node.get_node("WinSound").play()
 	var chLevel = preload("res://Scripts/LevelText.gd").new()
 	chLevel.changeLevel()
 
@@ -52,7 +60,6 @@ func low_pieces():
 #make a line that determines the end of level. It checks by comparing created rows
 #to number of created rows to finish
 func win_line():
-	print(Global.last_row)
 	if(Global.added_rows >= Global.last_row):
 		Global.last_row = Global.added_rows + 20000
 		win_line_node = preload("res://Pieces/Win_game_line.tscn").instance()

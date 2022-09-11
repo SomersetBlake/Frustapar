@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Borders/Elements_Border_Right.png" type="Texture" id=2]
@@ -13,17 +13,27 @@
 [ext_resource path="res://Clock.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Score.gd" type="Script" id=12]
 [ext_resource path="res://Assets/PublicPixel-0W5Kv.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Assets/DeerTogether2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/TopBackground.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/FontTheme.tres" type="Theme" id=16]
+[ext_resource path="res://Assets/StopGame.png" type="Texture" id=17]
+[ext_resource path="res://Assets/GoUp.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/HighScoreText.gd" type="Script" id=19]
+[ext_resource path="res://Assets/Audio/Track1.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Audio/NextLevel.wav" type="AudioStream" id=21]
+[ext_resource path="res://Assets/Audio/LoseSound.wav" type="AudioStream" id=22]
+[ext_resource path="res://Assets/Audio/Explosion.wav" type="AudioStream" id=23]
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 9 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 9 )
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 9 )
-
-[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -38,18 +48,55 @@ font_data = ExtResource( 13 )
 [sub_resource type="Theme" id=8]
 default_font = SubResource( 7 )
 
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 9 )
+
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 448.0 ],
 "_edit_vertical_guides_": [ 64.0 ]
 }
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="Bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -8.0
+autoplay = true
+bus = "Music"
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="Pause" parent="CanvasLayer2" instance=ExtResource( 15 )]
+[node name="Pause" parent="PauseLayer" instance=ExtResource( 15 )]
+
+[node name="Buttons" type="CanvasLayer" parent="PauseLayer/Pause"]
+layer = 101
+
+[node name="GoUp" type="Button" parent="PauseLayer/Pause/Buttons"]
+material = SubResource( 13 )
+margin_left = -2.0
+margin_top = 225.0
+margin_right = 74.0
+margin_bottom = 295.0
+rect_scale = Vector2( 0.75, 0.75 )
+focus_mode = 0
+icon = ExtResource( 18 )
+flat = true
+icon_align = 1
+
+[node name="StopGame" type="Button" parent="PauseLayer/Pause/Buttons"]
+material = SubResource( 12 )
+margin_left = -2.0
+margin_top = 280.0
+margin_right = 74.0
+margin_bottom = 350.0
+rect_scale = Vector2( 0.75, 0.75 )
+focus_mode = 0
+icon = ExtResource( 17 )
+flat = true
+icon_align = 1
 
 [node name="Grid" type="Node2D" parent="." groups=["Grid"]]
+visible = false
 position = Vector2( 64, 448 )
 script = ExtResource( 1 )
 
@@ -67,6 +114,13 @@ margin_left = 64.0
 margin_top = 64.0
 margin_right = 256.0
 margin_bottom = 448.0
+color = Color( 0, 0, 0, 0.627451 )
+
+[node name="GridBackground2" type="ColorRect" parent="CanvasLayer"]
+margin_left = 264.0
+margin_top = 87.0
+margin_right = 361.0
+margin_bottom = 278.0
 color = Color( 0, 0, 0, 0.627451 )
 
 [node name="Border" type="CanvasLayer" parent="."]
@@ -115,15 +169,28 @@ margin_right = 264.0
 margin_bottom = 481.0
 color = Color( 0.0392157, 0.0588235, 0.188235, 1 )
 
-[node name="GridTest" type="Node2D" parent="."]
+[node name="Background" type="Sprite" parent="Border/Control"]
+material = SubResource( 1 )
+position = Vector2( 319.5, 241 )
+
+[node name="Game" type="Node2D" parent="."]
 position = Vector2( 64, 448 )
 script = ExtResource( 10 )
 
-[node name="Deer" type="Sprite" parent="."]
-material = SubResource( 4 )
-position = Vector2( 434, 371 )
-scale = Vector2( 0.976562, 0.976562 )
-texture = ExtResource( 14 )
+[node name="WinSound" type="AudioStreamPlayer" parent="Game"]
+stream = ExtResource( 21 )
+volume_db = -3.0
+bus = "SoundEffects"
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="Game"]
+stream = ExtResource( 22 )
+volume_db = -3.0
+bus = "SoundEffects"
+
+[node name="Explosion" type="AudioStreamPlayer" parent="Game"]
+stream = ExtResource( 23 )
+volume_db = -2.0
+bus = "SoundEffects"
 
 [node name="Labels" type="Control" parent="."]
 margin_right = 40.0
@@ -203,3 +270,23 @@ text = "1"
 align = 1
 valign = 1
 script = ExtResource( 8 )
+
+[node name="TopBackground" type="Sprite" parent="Labels"]
+material = SubResource( 9 )
+position = Vector2( 146.457, 27 )
+scale = Vector2( 5.05509, 4 )
+texture = ExtResource( 14 )
+
+[node name="HighScoreText" type="Label" parent="Labels"]
+margin_left = 62.0
+margin_right = 259.0
+margin_bottom = 57.0
+theme = ExtResource( 16 )
+text = "HIGHSCORE
+1999999"
+align = 1
+valign = 1
+script = ExtResource( 19 )
+
+[connection signal="button_up" from="PauseLayer/Pause/Buttons/GoUp" to="Game" method="_on_GoUp_button_up"]
+[connection signal="button_up" from="PauseLayer/Pause/Buttons/StopGame" to="PauseLayer/Pause" method="_on_StopGame_button_up"]

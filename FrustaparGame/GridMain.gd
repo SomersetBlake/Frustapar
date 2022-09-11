@@ -19,6 +19,8 @@ func _ready():
 	_timer.set_wait_time(0.25)
 	_timer.set_one_shot(false)
 	_timer.start()
+	TitleTheme.get_node("/root/TitleTheme").stop()
+	
 	
 func _physics_process(delta: float) -> void:
 	if(Global.gameEnded == false):
@@ -30,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			destroy_line()
 			Global.first_pos = get_global_mouse_position()
 			var _mouse_grid = grid_creator.position_to_grid(get_global_mouse_position())
-#			print(Global.pieces_table[mouse_grid.x][mouse_grid.y].combo)
+#			print(Global.pieces_table[_mouse_grid.x][_mouse_grid.y].movable_down)
 
 		if(Input.is_action_just_released("ui_click")):
 			grid_movement.mouse_movement()
@@ -40,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		Global.child_count = get_child_count()
 
 func _on_Timer_timeout():
+	if(TitleTheme.get_node("/root/TitleTheme").playing == true):
+		TitleTheme.get_node("/root/TitleTheme").stop()
 	Global.matchedNumber = 0
 	Global.passedTime += 0.25
 	if(Global.gameEnded):
@@ -48,6 +52,7 @@ func _on_Timer_timeout():
 	if(Global.movable_down):
 		grid_movement.move_pieces_Y()
 		grid_movement.move_down()
+		destroy_line()
 	for x in Global.width:
 		for y in Global.height:
 			matching_node.tag_matching(Vector2(x,y))
@@ -115,3 +120,10 @@ func reset_combo():
 		for y in Global.height:
 			if(Global.pieces_table[x][y].combo_Time <= Global.passedTime):
 				Global.pieces_table[x][y].combo = 1
+
+
+func _on_GoUp_button_up():
+	if(!Global.gameEnded && get_tree().paused == false):
+		var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+		tween.tween_property(self, "position",
+		 Vector2(self.position.x,float(self.position.y - Global.size)), 0.25 )

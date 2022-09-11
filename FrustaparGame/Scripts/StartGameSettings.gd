@@ -5,6 +5,7 @@ onready var border = get_node("Border")
 
 
 func _on_BackButton_button_up():
+	get_node("Click").play()
 	if(border.rect_scale != Vector2(1,1)):
 		var tween := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 		tween.tween_property(border, "rect_position", Vector2(185,border.rect_position.y), 0.5 )
@@ -16,4 +17,5 @@ func _on_BackButton_button_up():
 
 
 func _on_PLAY_button_up():
+	get_node("Click").play()
 	SceneTransition.change_scene("res://Game.tscn")

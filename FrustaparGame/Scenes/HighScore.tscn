@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/MainScreenFontTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/ShowScore.gd" type="Script" id=2]
@@ -9,12 +9,18 @@
 [ext_resource path="res://Assets/Borders/Elements_Border_Bottom.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Borders/Elements_Border_Right.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Borders/Elements_Border_top.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Click.tscn" type="PackedScene" id=10]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 5 )
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 
 [node name="HighScore" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Click" parent="." instance=ExtResource( 10 )]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -15
@@ -32,8 +38,9 @@ color = Color( 0.054902, 0.262745, 0.0431373, 1 )
 
 [node name="BackgroundForestSimple" type="Sprite" parent="CanvasLayer2"]
 modulate = Color( 0.235294, 0.866667, 0.439216, 0.839216 )
-position = Vector2( 319, 240 )
-scale = Vector2( 1.99063, 1.98333 )
+material = SubResource( 2 )
+position = Vector2( 320.241, 240.202 )
+scale = Vector2( 2.00225, 2.0004 )
 texture = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -67,8 +67,12 @@ func change_pos(pos: Vector2, x: int, y: int):
 			elif(x != 0):
 				Global.pieces_table[pos.x][pos.y].movable_down = false
 				Global.pieces_table[pos.x + x][pos.y + y].movable_down = false
+				Global.pieces_table[pos.x][pos.y].get_node("XSound").play()
 				move_pieces_X()
+				make_movable_down(pos.x + x,pos.y + y, 1)
 
+#It checks all piece's actual position. If their node's position is different from actual 
+#position it moves them 
 func move_pieces_Y():
 	if(Global.can_move_Y):
 		Global.can_move_Y = false
@@ -82,9 +86,15 @@ func move_pieces_Y():
 					 Global.pieces_table[x][y].position, Global.pieces_table[x][y].node_pos,
 					 tween_time, Tween.TRANS_BOUNCE, Tween.EASE_OUT)
 					tween1.start()
+					fall_down_time(Vector2(x,y),tween_time)
 		yield(Global.parent_node.get_tree().create_timer(tween_time),"timeout")
 		Global.can_move_Y = true
 		make_matchable()
+
+func fall_down_time(pos: Vector2, tweenTime):
+	yield(Global.parent_node.get_tree().create_timer(tweenTime - 0.1),"timeout")
+	Global.pieces_table[pos.x][pos.y].get_node("YSound").play()
+
 
 func move_pieces_X():
 	var tween1
@@ -111,6 +121,20 @@ func reset_combo(x):
 
 func make_movable_down(x,y,t):
 	yield(Global.parent_node.get_tree().create_timer(t),"timeout")
+	if(is_instance_valid(Global.pieces_table[x][y])):
+		Global.pieces_table[x][y].movable_down = true
+		if(x + 1 < Global.width):
+			Global.pieces_table[x + 1][y].movable_down = true
+		if(x - 1 >= 0):
+			Global.pieces_table[x - 1][y].movable_down = true
+	for i in Global.width:
+		for k in Global.height:
+			if(Global.pieces_table[i][k].movable_down == false):
+				correct_down(i,k)
+
+
+func correct_down(x,y):
+	yield(Global.parent_node.get_tree().create_timer(0.2),"timeout")
 	if(is_instance_valid(Global.pieces_table[x][y])):
 		Global.pieces_table[x][y].movable_down = true
 

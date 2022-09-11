@@ -10,7 +10,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		self.paused = !paused
 		scene_tree.set_input_as_handled()
-		
+		if(is_instance_valid(get_node("Buttons"))):
+			if(get_node("Buttons").layer > 100):
+				get_node("Buttons").layer = 90
+			else:
+				get_node("Buttons").layer = 101
 		
 func set_paused(value: bool) -> void:
 	paused = value
@@ -19,6 +23,7 @@ func set_paused(value: bool) -> void:
 
 
 func _on_ExitButton_button_up():
+	get_node("Click").play()
 	var ev = InputEventAction.new()
 	ev.action = "pause"
 	ev.pressed = true
@@ -36,3 +41,11 @@ func reset_variables():
 	Global.level = 1
 	Global.gameEnded = false
 	Global.last_row = -12
+
+
+func _on_StopGame_button_up():
+	if(get_tree().paused == false):
+		var ev = InputEventAction.new()
+		ev.action = "pause"
+		ev.pressed = true
+		Input.parse_input_event(ev)

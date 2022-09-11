@@ -413,3 +413,5 @@ extends Node2D
 #				pieces_table[x][y].modulate = Color(0.2,0.2,0.2,1)
 #			else:
 #				pieces_table[x][y].modulate = Color(1,1,1,1)
+
+

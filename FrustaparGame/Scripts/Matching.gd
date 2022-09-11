@@ -125,6 +125,7 @@ func tag_matching(pos: Vector2):
 				match_anim(Vector2(pos.x - 1 - x, pos.y),"White_Blink")
 				Global.matchedNumber += 1
 		if(Global.matchedNumber > 3):
+			piece_match_counter(pos)
 			stop_time()
 		Global.score += Global.matchedNumber * 100 * combo_nb
 		if(combo_nb > 1):
@@ -193,6 +194,7 @@ func make_empty(pos: Vector2):
 	
 	
 func explosionAnim(pos: Vector2):
+	Global.parent_node.get_node("Explosion").play()
 	var explosion = preload("res://Pieces/ExplosionAnimation.tscn").instance()
 	Global.parent_node.add_child(explosion)
 	explosion.position = Global.pieces_table[pos.x][pos.y].position
@@ -220,4 +222,10 @@ func combo_anim(pos:Vector2, combo_nb: int):
 	combo_piece.position = create_grid.piece_position(pos.x, pos.y)
 	stop_time()
 	
+func piece_match_counter(pos:Vector2):
+	var match_counter = preload("res://Pieces/PieceMatchCounter.tscn").instance()
+	match_counter.match_nb = Global.matchedNumber
+	var create_grid = Global.parent_node.grid_creator
+	Global.parent_node.add_child(match_counter)
+	match_counter.position = create_grid.piece_position(pos.x, pos.y)
 	

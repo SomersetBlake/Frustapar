@@ -2,6 +2,7 @@ extends Button
 
 
 func _on_RetryButton_button_up():
+	get_node("Click").play()
 	Global.score = 0
 	Global.speed = Global.levelSpeed[Global.level - 1]
 	Global.stopped = false

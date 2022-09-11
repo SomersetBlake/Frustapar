@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 Global="*res://Global.tscn"
 SceneTransition="*res://Scenes/Transition.tscn"
 Score_Saving="*res://Scenes/SaveAndLoad.tscn"
+TitleTheme="*res://Scenes/TitleTheme.tscn"
 
 [display]
 

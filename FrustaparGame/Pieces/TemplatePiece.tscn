@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/TemplatePiece.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Audio/SoundsX.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Audio/SoundsY.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "White_Blink"
@@ -31,5 +33,15 @@ movable_down = true
 anims/White_Blink = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="XSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -21.048
+bus = "SoundEffects"
+
+[node name="YSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -11.143
+bus = "SoundEffects"
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]

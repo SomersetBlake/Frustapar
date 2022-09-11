@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ScalingShader.gdshader" type="Shader" id=1]
 [ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/ResetButton.gd" type="Script" id=4]
 [ext_resource path="res://Assets/FRUSTAPAR_TITLE_3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/MainScreenFontTheme.tres" type="Theme" id=6]
+[ext_resource path="res://Scenes/Click.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -18,6 +19,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 240.0 ]
 }
+
+[node name="Click" parent="." instance=ExtResource( 7 )]
 
 [node name="PauseScreen" type="ColorRect" parent="."]
 visible = false
@@ -43,12 +46,16 @@ margin_bottom = 51.0
 text = "RETRY"
 script = ExtResource( 2 )
 
+[node name="Click" parent="PauseScreen/Container/RetryButton" instance=ExtResource( 7 )]
+
 [node name="ResetButton" type="Button" parent="PauseScreen/Container"]
 margin_top = 71.0
 margin_right = 150.0
 margin_bottom = 122.0
 text = "RESET"
 script = ExtResource( 4 )
+
+[node name="Click" parent="PauseScreen/Container/ResetButton" instance=ExtResource( 7 )]
 
 [node name="ExitButton" type="Button" parent="PauseScreen/Container"]
 margin_top = 142.0

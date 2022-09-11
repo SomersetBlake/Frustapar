@@ -3,6 +3,7 @@ extends Button
 
 
 func _on_LevelSelect_button_up():
+	get_node("Click").play()
 	var LevelSelect = get_node("../../../Level/")
 	var border = get_node("../../")
 	var tween := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
