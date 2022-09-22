@@ -74,7 +74,7 @@ texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 286, 48 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 20
+size = 24
 outline_size = 5
 outline_color = Color( 0.0117647, 0.54902, 0.4, 1 )
 extra_spacing_top = 5

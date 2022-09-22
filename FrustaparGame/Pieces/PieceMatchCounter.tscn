@@ -103,7 +103,7 @@ anims/RESET = SubResource( 8 )
 
 [node name="CounterSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = 8.0
+volume_db = 2.0
 bus = "SoundEffects"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

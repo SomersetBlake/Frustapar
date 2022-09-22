@@ -86,14 +86,14 @@ func move_pieces_Y():
 					 Global.pieces_table[x][y].position, Global.pieces_table[x][y].node_pos,
 					 tween_time, Tween.TRANS_BOUNCE, Tween.EASE_OUT)
 					tween1.start()
-					fall_down_time(Vector2(x,y),tween_time)
+					fall_down_sound()
 		yield(Global.parent_node.get_tree().create_timer(tween_time),"timeout")
 		Global.can_move_Y = true
 		make_matchable()
 
-func fall_down_time(pos: Vector2, tweenTime):
-	yield(Global.parent_node.get_tree().create_timer(tweenTime - 0.1),"timeout")
-	Global.pieces_table[pos.x][pos.y].get_node("YSound").play()
+func fall_down_sound():
+	Global.parent_node.get_node("YSound").play()
+	
 
 
 func move_pieces_X():

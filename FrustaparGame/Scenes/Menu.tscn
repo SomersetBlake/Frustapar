@@ -26,7 +26,7 @@ shader = ExtResource( 2 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 240.0 ],
-"_edit_vertical_guides_": [ 320.0, 185.0 ]
+"_edit_vertical_guides_": [ 320.0, 184.0 ]
 }
 
 [node name="Click" parent="." instance=ExtResource( 9 )]
@@ -82,33 +82,33 @@ alignment = 1
 
 [node name="MasterVolume" type="HSlider" parent="VBoxContainer"]
 material = SubResource( 2 )
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 420.0
-margin_bottom = 67.0
+margin_bottom = 65.0
 min_value = -40.0
 max_value = 10.0
 rounded = true
 
 [node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
 material = SubResource( 3 )
-margin_top = 73.0
+margin_top = 71.0
 margin_right = 420.0
-margin_bottom = 137.0
+margin_bottom = 135.0
 min_value = -40.0
 max_value = 10.0
 
 [node name="SoundVolume" type="HSlider" parent="VBoxContainer"]
 material = SubResource( 4 )
-margin_top = 143.0
+margin_top = 141.0
 margin_right = 420.0
-margin_bottom = 207.0
+margin_bottom = 205.0
 min_value = -40.0
 max_value = 10.0
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
-margin_top = 213.0
+margin_top = 211.0
 margin_right = 420.0
-margin_bottom = 258.0
+margin_bottom = 260.0
 text = "BACK"
 
 [node name="Container" type="Control" parent="."]
@@ -117,28 +117,28 @@ margin_bottom = 40.0
 theme = ExtResource( 8 )
 
 [node name="VOLUME" type="Label" parent="Container"]
-margin_left = 56.0
-margin_top = 124.0
-margin_right = 180.0
-margin_bottom = 159.0
+margin_left = 10.0
+margin_top = 122.0
+margin_right = 182.0
+margin_bottom = 165.0
 text = "VOLUME"
 align = 2
 valign = 1
 
 [node name="VOLUME2" type="Label" parent="Container"]
-margin_left = 56.0
-margin_top = 194.0
-margin_right = 180.0
-margin_bottom = 229.0
+margin_left = 58.0
+margin_top = 195.0
+margin_right = 182.0
+margin_bottom = 234.0
 text = "MUSIC"
 align = 2
 valign = 1
 
 [node name="VOLUME3" type="Label" parent="Container"]
-margin_left = 56.0
-margin_top = 264.0
-margin_right = 180.0
-margin_bottom = 299.0
+margin_left = 58.0
+margin_top = 265.0
+margin_right = 182.0
+margin_bottom = 304.0
 text = "SFX"
 align = 2
 valign = 1

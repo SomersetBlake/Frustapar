@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Borders/Elements_Border_Right.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Audio/NextLevel.wav" type="AudioStream" id=21]
 [ext_resource path="res://Assets/Audio/LoseSound.wav" type="AudioStream" id=22]
 [ext_resource path="res://Assets/Audio/Explosion.wav" type="AudioStream" id=23]
+[ext_resource path="res://Scenes/YSound.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 9 )
@@ -164,9 +165,9 @@ texture = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Border/Control"]
 margin_left = 57.0
-margin_top = 456.0
+margin_top = 457.0
 margin_right = 264.0
-margin_bottom = 481.0
+margin_bottom = 482.0
 color = Color( 0.0392157, 0.0588235, 0.188235, 1 )
 
 [node name="Background" type="Sprite" parent="Border/Control"]
@@ -179,7 +180,7 @@ script = ExtResource( 10 )
 
 [node name="WinSound" type="AudioStreamPlayer" parent="Game"]
 stream = ExtResource( 21 )
-volume_db = -3.0
+volume_db = -8.0
 bus = "SoundEffects"
 
 [node name="LoseSound" type="AudioStreamPlayer" parent="Game"]
@@ -191,6 +192,8 @@ bus = "SoundEffects"
 stream = ExtResource( 23 )
 volume_db = -2.0
 bus = "SoundEffects"
+
+[node name="YSound" parent="Game" instance=ExtResource( 24 )]
 
 [node name="Labels" type="Control" parent="."]
 margin_right = 40.0

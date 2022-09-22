@@ -20,7 +20,7 @@ func set_paused(value: bool) -> void:
 	paused = value
 	scene_tree.paused = value
 	pause_screen.visible = value
-
+	self.get_node("PauseScreen/PlayersScore").text = "SCORE\n" + String(Global.score)
 
 func _on_ExitButton_button_up():
 	get_node("Click").play()
