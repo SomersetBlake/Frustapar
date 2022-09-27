@@ -1,6 +1,6 @@
 extends Node2D
 
-var top_100 = []
+var top_100 = [0]
 var master_volume = 0
 var music_volume = 0
 var sound_volume = 0
